@@ -1,0 +1,27 @@
+body {
+    
+    background-color: lightblue;
+}
+
+h1 {
+
+    font-family: verdana;
+    background-color:white;
+    color: CornflowerBlue;
+    text-align: center;
+
+}
+
+.mybuttons {
+    display: flex;
+    justify-content: center;
+}
+
+.tweetFeed {
+    width: 650px;
+    margin: auto;
+    background-color: white;
+
+    
+}
+
