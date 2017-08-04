@@ -6,7 +6,7 @@ $(document).ready(function(){
   
 
 
-var updateTweets= function(tweetArr, index){
+function updateTweets(tweetArr, index){
     var $tweetFeed = $('.tweetFeed');
     $tweetFeed.html('');
 
@@ -15,6 +15,7 @@ var updateTweets= function(tweetArr, index){
       var tweet = tweetArr[index];
       var $tweet = $('<div class="username"></div>');
       $tweet.html('<p><p>@'+'<a href="#" class="byUsername">'+tweet.user+'</a>'+ ': ' + tweet.message + '['+tweet.created_at.toLocaleDateString()+']');
+
       $tweet.appendTo($tweetFeed);
       index -= 1;
     }    
@@ -27,11 +28,10 @@ updateTweets(streams.home);
       updateTweets(streams.home);      
   })
 
-  $('.byUsername').on('click', function(name){
+  $(document).on('click', '.byUsername', function(name){
       var userArr = streams.users;
       var name = name.target.innerHTML;
-      var $byUser =$('<div class="cache"></div>');
-      $byUser.text(name);
+
       updateTweets (userArr[name]);          
   });
 
@@ -39,9 +39,9 @@ updateTweets(streams.home);
       updateTweets(streams.home, 0);
   })
 
-
-
 });
+
+
 
 //streams.home is an array of all tweets from all the users you're following.
 //streams.users is an object with properties for each user.
